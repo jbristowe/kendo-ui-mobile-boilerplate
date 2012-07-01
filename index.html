@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/kendo.mobile.min.js"></script>
+	<link rel="stylesheet" href="css/kendo.common.min.css" />
+	<link rel="stylesheet" href="css/kendo.mobile.all.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <!-- home view -->
+	<div data-role="view" data-layout="application-layout" id="application-home" data-title="Home">
+		<!-- HTML (i.e. Kendo UI Mobile widgets) go here -->
+		<a data-role="button" data-rel="modalview" href="#application-login" id="modalview-open-button">Login</a>
+		<!-- login model view -->
+		<div data-role="modalview" id="application-login" style="width: 95%; height: 80%;">
+			<div data-role="header">
+				<div data-role="navbar">
+					<span>Login</span>
+					<a data-click="closeModalViewLogin" data-role="button" data-align="right">Cancel</a>
+				</div>
+			</div>
+			<ul data-role="listview" data-style="inset">
+				<li><label for="username">Username:</label> <input type="text" id="username-login-input" placeholder="Username" /></li>
+				<li><label for="password">Password:</label> <input type="password" id="password-login-input" placeholder="Password" /></li>
+			</ul>
+			<a data-click="loginButtonClicked" id="login-button" type="button" data-role="button">Login</a>
+			<a data-click="registerButtonClicked" id="register-button" type="button" data-role="button">Register</a>
+		</div>
+	</div>
+    <!-- settings view -->
+	<div data-role="view" data-layout="application-layout" id="application-settings" data-title="Settings">
+		<!-- HTML (i.e. Kendo UI Mobile widgets) go here -->
+		<p>Settings</p>
+	</div>
+	<!-- application layout; allows you to share headers and footers amongst views -->
+	<div data-role="layout" data-id="application-layout">
+		<header data-role="header">
+			<!-- NavBar for view titles, back button, and context buttons -->
+			<div data-role="navbar">
+				<span data-role="view-title"></span>
+			</div>
+		</header>
+		<footer data-role="footer">
+			<!-- TabStrip for local/remote views -->
+			<div data-role="tabstrip">
+	           <a data-icon="globe" href="#application-home">Home</a>
+	           <a data-icon="settings" href="#application-settings">Settings</a>
+			</div>
+		</footer>
+	</div>
+	<script>
+		var app = new kendo.mobile.Application(document.body);
+	</script>
+</body>
+</html>
